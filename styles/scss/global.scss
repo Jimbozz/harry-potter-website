@@ -1,0 +1,21 @@
+//Bootstrap
+$theme-colors: (
+  "primary": #0b3219,
+  "secondary": #329d07,
+  "success": #1ce1ac,
+  "info": #ff7d50,
+  "warning": #e0a604,
+  "danger": #ff007f,
+  "light": #e2e2e2,
+  "dark": #1a472a,
+);
+$font-family-base: "Roboto", sans-serif;
+$border-radius: 3px;
+$body-bg: #efefe9;
+$dark-green: #1a472a;
+
+@import "~bootstrap/scss/bootstrap";
+
+//partials
+
+@import "./partials/general";

@@ -1,61 +1,85 @@
-# JS Frameworks - Module Assignment 3
+# JS Frameworks Course Assignment
 
-# Brief
+## Brief
 
-Create a new app using Create React App.
+Create either a new React or Next.js app in this repo.
 
-You can create an app inside the current folder using:
+For the login functionality, use either a Wordpress installation with the <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/" target="_blank">JWT plugin from Module 3</a> installed, or a Strapi installation. Do not add either of these to your repo. Your API should remain a separate project. The markers will use their own installations when marking.
 
-```
-npx create-react-app .
-```
-
-> If your repo name has a capital letter in it make the folder name all lowercase before running the above command.
+You can use either a REST or GraphQL API for the API calls.
 
 ---
 
-Level 1 is required.
+## Assessment
 
-Level 2 is optional.
+Please provide your login credentials for assessment.
 
-You can use a UI library like React Bootstrap or style it all on your own. The styling is not important for this assignment but every frontend project must always be responsive.
+Example
 
-You can use any Wordpress installation for this. DO NOT submit your Wordpress files and DO NOT combine your React frontend with your Wordpress files.
-
-Use `.env.development` to set the API URL. The markers will change this to their own URL when marking.
-
-The API calls in Level 1 do not require authorisation so you don't need to install or configure JWT support.
-
-If you do Level 2 you will need to install and configure JWT support.
-
-Consult <a href="https://developer.wordpress.org/rest-api/reference/" target="_blank">the docs</a> for the required endpoints.
-
----
+- username: xxxxxx
+- password: xxxxxx
 
 ## Level 1
 
-Make an API call and list all the `pages` in your Wordpress installation. This should happen on the home route: "/"
+Your app should have the following paths:
 
-Clicking on a `page` should take the user to a "page/{id}" route.
+- "/"
+- "/detail/:param"
+- "/contact"
+- "/login"
+- "/admin"
 
-Retrieve the id from the URL path and make a GET request to fetch the specific page.
+The admin path won't appear in your navigation.
 
-Render the `title`, `date` and `excerpt` properties.
+Use reusable components where appropriate and pay attention to how the components are arranged.
 
-Format the `date` in this format: 01 January 2021
+### Home
 
-The `excerpt` property contains HTML. Use `dangerouslySetInnerHTML` to render it.
+Find an API that returns at least:
+
+- an array of items
+- a single item retrieved by a parameter (id, name, slug, etc)
+
+If you are using Next you can also hard-code json and return it from API routes created in `pages/api/*`.
+
+You can use your own Wordpress or Strapi or any other API that you have created for these calls but it must be publically hosted - it must not be running on your localhost.
+
+Display at least 2 properties from each result.
+
+Each result should link to the detail page, passing a parameter in the URL.
+
+### Detail
+
+Retrieve the parameter from the URL and use it in an API call to fetch one item.
+
+Display at least 3 properties from the item.
+
+### Contact
+
+Create a form with the following inputs and validation:
+
+- First name - required, minimum 3 characters
+- Last name - required, minimum 4 characters
+- Email - required, must be in a valid email format
+- Subject - required, this must be a select box with at least 2 options
+- Message - required, minimum 10 characters.
+
+### Login
+
+Create a form with username/email and password fields. The inputs should have the necessary validation for a login form (not a registration form).
+
+The form should make a login request to either a Wordpress API with the JWT plugin installed or a Strapi API. If the login is successful redirect the user to the admin route.
+
+If the login is unsuccessful display a message above the form.
+
+### Admin
+
+This page will simply display an "Admin" heading.
 
 ---
 
 ## Level 2
 
-The home route should contain a login form.
+Add a favourite button/icon component to each result on your home page. Clicking this button will toggle the result in/out of a favourites array.
 
-Once logged in, the user should be redirected to the "/admin" route that lists all the pages.
-
-Clicking on a page should redirect to a "/admin/edit/{id}" route that populates a form.
-
-The form should allow editing of the `title` property and the `status` property from a dropdown.
-
-_Use the same JWT plugin as the lessons_ as this is what the markers will have installed.
+Add a "/favourites" path to your routes. This page will display all the items currently in the favourites array.

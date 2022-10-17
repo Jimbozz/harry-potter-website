@@ -1,0 +1,37 @@
+//custom
+$colour-error: rgb(247, 11, 11);
+$colour-warning: rgb(236, 158, 24);
+$colour-success: rgb(6, 131, 6);
+
+$blue: hsl(246, 80%, 60%);
+$blue-shade: hsl(246, 61%, 53%, 1);
+$very-dark-blue: hsl(226, 43%, 10%);
+$dark-blue: hsl(235, 46%, 20%);
+$pale-blue: hsl(236, 100%, 87%);
+
+//Bootstrap
+$theme-colors: (
+  "dark": $dark-blue,
+  "light": $blue,
+);
+
+$font-family-base: "Rubik", sans-serif;
+$border-radius: 3px;
+$border-radius-lg: 0;
+$headings-color: white;
+$body-bg: $very-dark-blue;
+$body-color: $pale-blue;
+$card-border-color: none;
+$card-color: $pale-blue;
+$card-bg: $blue;
+$input-border-color: $pale-blue;
+$input-bg: $pale-blue;
+$input-color: $very-dark-blue;
+
+@import "~bootstrap/scss/bootstrap";
+
+//Partials
+
+@import "./partials/general";
+@import "./partials/forms";
+@import "./partials/cardStyles";

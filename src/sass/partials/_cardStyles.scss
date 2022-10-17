@@ -1,0 +1,28 @@
+.universal {
+  max-width: 80vw;
+
+  @media only screen and (min-width: 769px) {
+    max-width: 50vw;
+  }
+
+  .card {
+    &:hover {
+      transform: translateY(-1.5px);
+    }
+
+    &-title {
+      font-weight: bold;
+    }
+
+    &-footer {
+      background-color: $blue-shade;
+      color: $very-dark-blue;
+      justify-content: space-between;
+      flex-direction: column;
+
+      @media only screen and (min-width: 769px) {
+        flex-direction: row;
+      }
+    }
+  }
+}
